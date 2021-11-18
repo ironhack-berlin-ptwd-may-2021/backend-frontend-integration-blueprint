@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ProjectList from './ProjectList';
+import ProjectList from './ProjectListWithHooks';
 import Signup from './Signup';
 import Login from './Login';
 import UploadPic from './UploadPic'
@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="App" >
         Hi {this.state.currentUser ? this.state.currentUser.username : 'unknown person'} !
-        {/* <ProjectList></ProjectList> */}
+        <ProjectList></ProjectList>
 
         <Signup></Signup >
 
