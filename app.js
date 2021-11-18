@@ -12,7 +12,7 @@ const path = require('path');
 const session = require('express-session');
 
 mongoose
-  .connect('mongodb://localhost/project-management', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -33,7 +33,7 @@ app.use(session({
   saveUninitialized: true, // create cookie for non-logged-in user
 
   // MongoStore makes sure the user stays logged in also when the server restarts
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/project-management' })
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
 }));
 
 // Middleware Setup
